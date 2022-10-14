@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<main class="container">
+
+    <div class="row">
+
+        <div class="col-md-4 offset-md-4 mt-5">
+
+
+            <h1>Detalle de actividad {{actividad.id}}/{{actividad.titulo}}</h1>
+
+            <form method="POST">
+                {%csrf_token%} {{formularioActividad.as_p}}
+
+                <button class="btn btn-primary">Modificar</button>
+            </form>
+            <div class="d-flex mt-5 ">
+
+                <form action="{% url 'actividadRealizar' actividad.id %}" method="POST">
+                    {%csrf_token%}
+                    <button class="btn btn-secondary">Realizar</button>
+
+                </form>
+
+                <form action="{% url 'actividadEliminar' actividad.id %}" method="POST">
+                    {%csrf_token%}
+                    <button class="btn btn-danger">Eliminar</button>
+
+                </form>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</main>
+
+{%endblock%}

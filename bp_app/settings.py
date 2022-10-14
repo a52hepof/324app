@@ -121,6 +121,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'signin'
+
 LOGIN_REDIRECT_URL = '/admin/'
 
 # Static files (CSS, JavaScript, Images)

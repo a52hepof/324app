@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+<main class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+
+            <h1>Crear Actividad</h1>
+
+            <form action="/Actividades/crear" method="POST" class="card card-body">
+                {%csrf_token%} {{form.as_p}}
+                <button class="btn btn-primary">button</button>
+
+            </form>
+
+            {{autor}}
+
+        </div>
+    </div>
+</main>
+
+<br/> {%endblock%}

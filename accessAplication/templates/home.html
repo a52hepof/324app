@@ -1,6 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>home </h1>
-<h2> {{grupo}}</h2>
+<main class="container py-5">
+    <section class="card card-body">
+
+        <h1 class="display-1 text-center">Aplicación Administración 324 </h1>
+        <h2 class="text-center"> {{grupo}}</h2>
+
+        <div class="text-center">
+            <a class="btn btn-secondary" href="/signin"> Ingresar</a>
+            <a class="btn btn-dark" href="/logout"> Salir</a>
+
+
+        </div>
+    </section>
+
+
+
+</main>
+
 
 {%endblock%}

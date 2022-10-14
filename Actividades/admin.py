@@ -8,6 +8,7 @@ class PhotoActivityAdmin(admin.StackedInline):
 
 class ActivityAdmin(admin.ModelAdmin):
     readonly_fields = ('created',)
+    #exclude = ('realizada',)
     inlines = [PhotoActivityAdmin]
 
 

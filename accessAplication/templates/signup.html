@@ -1,12 +1,43 @@
 {% extends 'base.html' %} {% block content %}
 
+<main class="container">
 
-<h1>Login page </h1>
+    <div class="row">
 
-<form method="POST">
-    {% csrf_token %} {{form.as_p}}
-    <button>
-        button
-    </button>
-</form>
-{{error}} {%endblock%}
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form method="POST" class="card card-body ">
+                <h1 class="text-center">Página de registro </h1>
+
+                {% csrf_token %}
+
+                <!--
+                Formulario heredado para la clase
+                {{form.as_p}}
+                 -->
+
+                <div class="mb-3">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese su usuario">
+                </div>
+                <div class="mb-3">
+                    <label for="password1">Password:</label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese su contraseña. Debe ser segura">
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="password2" class="form-control" placeholder="Confirme su contraseña">
+                </div>
+
+
+
+                <button class="btn btn-primary">
+                Registro
+                </button>
+                </br>
+                {{error}}
+            </form>
+
+        </div>
+    </div>
+
+</main>
+{%endblock%}

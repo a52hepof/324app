@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<main class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <h1 class="text-center">Listado de actividades</h1>
+            <div class="text-center">
+
+                {{autor}}
+                <br/> {{user}}
+                <br/>
+            </div>
+
+            <ul class="list-group">
+                {%for activity in actividades%}
+
+                <a class="list-group-item" href="{% url 'actividadDetalle' activity.id %}">
+                    <header>
+                        <h2>{{activity.titulo }}</h4>
+                            <h3>id: {{activity.id}}</h2>
+                        <p>Realizada: {{activity.realizada}}</p>
+                        <p>Descripcion: {{activity.description}}</p>
+                    </header>
+
+
+                </a>
+
+                {%endfor%}
+            </ul>
+
+
+            {{error}}
+
+        </div>
+    </div>
+
+
+
+</main>
+
+
+
+{%endblock%}

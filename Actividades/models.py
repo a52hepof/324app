@@ -24,7 +24,7 @@ class Activity(models.Model):
     num_participantes = models.IntegerField(default=2, verbose_name="NParticipantes")
     tipo_actividad =models.CharField(max_length=100,null=True)
     fecha_evaluacion = models.DateField(null=True, blank=True)
-    
+    realizada = models.BooleanField(null=True, blank=True,default=False)
     #images = models.ImageField(upload_to="Actividades/",default="")
     #images  = CloudinaryField(resource_type='image', folder = "media/Actividades/", transformation ={'quality':'50'},use_filename=True,null=True)
     #files  = CloudinaryField(resource_type='raw', folder = "media/Actividades/", transformation ={'quality':'50'},use_filename=True,null=True)                        

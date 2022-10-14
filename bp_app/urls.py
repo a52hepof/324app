@@ -25,11 +25,14 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', accessAplicationViews.home, name='home'),
     path('signup', accessAplicationViews.signupPage, name='signup'),
-    path('Actividades/listado', actividadesViews.actividadeMain, name='actividades'),
-    path('Actividades/creada/<str:idActividad>', actividadesViews.actividadCreada, name='actividadcreada'),
     path('logout', accessAplicationViews.signout, name='logout'),
     path('signin', accessAplicationViews.signin, name='signin'),
     path('Actividades/crear', actividadesViews.crearActividad, name='crearActividades'),
+    path('Actividades/creada/<str:idActividad>', actividadesViews.actividadCreada, name='actividadcreada'),
+    path('Actividades/listado', actividadesViews.actividadListado, name='actividades'),
+    path('Actividades/detalle/<int:idActividad>', actividadesViews.actividadDetalle, name='actividadDetalle'),
+    path('Actividades/realizar/<int:idActividad>', actividadesViews.actividadRealizar, name='actividadRealizar'),
+    path('Actividades/eliminar/<int:idActividad>', actividadesViews.actividadEliminar, name='actividadEliminar'),
     
 ]
 
