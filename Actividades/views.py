@@ -3,8 +3,6 @@ from multiprocessing.sharedctypes import Value
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from flask_login import login_required
-
-
 import Actividades
 from .forms import ActividadesForm
 from Actividades.templates import *
