@@ -8,7 +8,7 @@
 
             <h1>Detalle de actividad {{actividad.id}}/{{actividad.titulo}}</h1>
 
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 {%csrf_token%} {{formularioActividad.as_p}}
 
                 <button class="btn btn-primary">Modificar</button>

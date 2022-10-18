@@ -9,7 +9,7 @@
 
             <h1>Crear Actividad</h1>
 
-            <form action="/Actividades/crear" method="POST" class="card card-body">
+            <form action="/Actividades/crear" method="POST" class="card card-body" enctype="multipart/form-data">
                 {%csrf_token%} {{form.as_p}}
                 <button class="btn btn-primary">button</button>
 

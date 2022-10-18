@@ -7,7 +7,7 @@ class ActividadesForm(ModelForm):
         model = Activity
         fields = ['titulo', 'description','num_responsables','num_participantes'
                   #,'tipo_actividad','user','realizada']
-                  ,'tipo_actividad' ]
+                  ,'tipo_actividad','files', 'files_thumbnail' ]
         
         widgets = {
             'titulo': forms.TextInput(attrs={'class':'form-control'}),

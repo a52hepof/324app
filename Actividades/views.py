@@ -74,8 +74,8 @@ def crearActividad(request):
         
     else:
         try:
-            formulario = ActividadesForm(request.POST)
-            #print(request.user, request.user.id, request.user.username)
+            formulario = ActividadesForm(request.POST, request.FILES)
+            print(request.user, request.user.id, request.user.username)
             #if formulario.is_valid():
             nuevaActividad = formulario.save(commit=False)
             nuevaActividad.user = request.user
@@ -112,7 +112,7 @@ def actividadDetalle(request,idActividad):
         
         try:
             actividad = get_object_or_404(Activity,pk=idActividad,user=request.user)
-            form = ActividadesForm(request.POST, instance=actividad)
+            form = ActividadesForm(request.POST, request.FILES,instance=actividad)
             form.save()  
             return redirect('actividades')      
             #return render(request, 'actividadDetalle.html',{'actividad':actividad, 'formularioActividad' : form})
