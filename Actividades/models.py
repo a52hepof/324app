@@ -41,7 +41,7 @@ class Activity(models.Model):
 
 
 class PhotoActivity(models.Model):
-    photoName = models.CharField(max_length=200,null=True)
+    photoName = models.CharField(max_length=200)
     #photo  = models.ImageField(upload_to="Actividades/",null=True)
     photo  = CloudinaryField(resource_type='image', folder = "media/Actividades/", transformation ={'quality':'50'},
                              use_filename=True,null=True

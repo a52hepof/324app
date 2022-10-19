@@ -11,6 +11,13 @@
 
             <form action="/Actividades/crear" method="POST" class="card card-body" enctype="multipart/form-data">
                 {%csrf_token%} {{form.as_p}}
+                </br>
+                </br>
+
+                <div class="card">
+                    <h3>Fotografías de la actividad</h3>
+                    {{formInline}}
+                </div>
                 <button class="btn btn-primary">button</button>
 
             </form>

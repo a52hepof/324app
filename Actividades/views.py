@@ -5,10 +5,10 @@ from django.http import HttpResponse
 import Actividades
 from .forms import ActividadesForm
 from Actividades.templates import *
-from .models import Activity, User
+from .models import Activity, User, PhotoActivity
 
 from django.contrib.auth.decorators import login_required
- 
+from django.forms import inlineformset_factory
 
 # Create your views here.
 def helloworld(request):
@@ -56,6 +56,7 @@ def crearActividad(request):
     usuario = request.user
     UserObject = User.objects.all()
     #print(UserObject, request.user, username)
+    createFormSet = inlineformset_factory(Activity, PhotoActivity, fields=('photoName','photo',), extra=1)
     
     if type(username) == 'NoneType' or username == None:
         #print('Regístrese')
@@ -68,29 +69,41 @@ def crearActividad(request):
         return render(request, 'actividadCrear.html', 
             {
             'form': ActividadesForm,
+            'formInline': createFormSet,
             'autor': Author , 
             }
         )
         
     else:
         try:
+            #createFormSet = inlineformset_factory(Activity, PhotoActivity, fields=('photo',))
+            #print(createFormSet)
             formulario = ActividadesForm(request.POST, request.FILES)
-            print(request.user, request.user.id, request.user.username)
+            print(request.user, '--',request.user.id,'--', request.user.username)
             #if formulario.is_valid():
             nuevaActividad = formulario.save(commit=False)
             nuevaActividad.user = request.user
-            #print(nuevaActividad)
             nuevaActividad.save()
-            idActividad=nuevaActividad.id 
+            #nuevaActividadPhoto.save()
+            idActividad=nuevaActividad.id
+            formset = createFormSet(request.POST, request.FILES,instance=nuevaActividad)
+            #print(formset)
             
+            if formset.is_valid():          
+                #nuevaActividadPhoto = formset.save(commit=False)
+                nuevaActividadPhoto = formset.save()
+                print(nuevaActividadPhoto)
+        
             #return redirect('actividadcreada', {'idActividad':idActividad,'actividad':nuevaActividad}) ## esto no funciona
             return redirect('actividadcreada', idActividad)
-        except:
-            print('Algo ha ido mal')
+        
+        except Exception as e:
+            print('Algo ha ido mal', e)
             
             return render(request, 'actividadCrear.html', 
                 {
                 'form': ActividadesForm,
+                'formInline': createFormSet,
                 'autor': Author , 
                 'error':'Proporciona los datos correctos para dar de alta la actividad',
                 'actividad':nuevaActividad
