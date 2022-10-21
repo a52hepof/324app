@@ -47,7 +47,7 @@ class RevisionMaterial(models.Model):
     descripcionRevision = models.TextField(null=True, blank=True)
     def __str__(self):
         #return '%s - %s' %(self.titulo, self.description)
-        return self.material
+        return self.material.material
     
     
 class PhotoRevision(models.Model):
