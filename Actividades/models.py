@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 from django.contrib.auth.models import User
+#from accessAplication.models import User
 from sqlalchemy import ForeignKey, false, null
 from cloudinary.models import CloudinaryField
 
@@ -41,15 +42,13 @@ class Activity(models.Model):
 
 
 class PhotoActivity(models.Model):
-    photoName = models.CharField(max_length=200)
+    photoName = models.CharField(max_length=200, null=True, blank=True)
     #photo  = models.ImageField(upload_to="Actividades/",null=True)
     photo  = CloudinaryField(resource_type='image', folder = "media/Actividades/", transformation ={'quality':'50'},
                              use_filename=True,null=True
                             )
-    
-    
     activity =models.ForeignKey(Activity, on_delete=models.CASCADE)
     def __str__(self):
         #return '%s - %s' %(self.titulo, self.description)
-        return self.photoName +' - '
+        return self.photoName
         
