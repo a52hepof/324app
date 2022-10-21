@@ -1,5 +1,4 @@
 from django.contrib import admin
-from sklearn.metrics import SCORERS
 #from django.contrib.auth.admin import UserAdmin
 from .models import Profile, User
 
