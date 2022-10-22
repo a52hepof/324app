@@ -44,6 +44,7 @@ print(userChoicesTuple)
 #print(usersChoices)
 #print([x for x in USUARIOS_CHOICES.values_list('User', flat=True).distinct()])
 class Material(models.Model):
+    '''
     NUEVO = "Nuevo"
     DESPERFECTOS_MENORES = "Desperfectos menores"
     DESPERFECTOS_MODERADOS = "Desperfectos moderados"
@@ -106,9 +107,9 @@ class Material(models.Model):
        
     )
     
-    
+    '''
     material = models.CharField(max_length=200, null=True)
-    #seccion =models.ManyToManyField(Seccion,through="AsignacionMaterial")
+    seccion =models.ManyToManyField(Seccion,through="AsignacionMaterial")
     
     materialDescription = models.TextField(max_length=3000,null=True)
     created = models.DateTimeField(auto_now_add=False, default=timezone.now)
@@ -192,6 +193,7 @@ class PhotoRevision(models.Model):
         #return '%s - %s' %(self.titulo, self.description)
         return self.photoName
 
+'''
 
 class AsignacionMaterial(models.Model):
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
@@ -200,4 +202,3 @@ class AsignacionMaterial(models.Model):
     rondaSolar = models.IntegerField()
     def __str__(self):
         return self.seccionName.seccionName + '----'+ self.material.material+'---' +str(self.rondaSolar)
-'''
