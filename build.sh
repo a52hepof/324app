@@ -8,5 +8,5 @@ python manage.py collectstatic --no-input
 python manage.py makemigrations
 python manage.py migrate
 #create superusers. Primer despliegue 
-python manage.py createsuperuser --noinput #take enviroment variables
+#python manage.py createsuperuser --noinput #take enviroment variables
 #python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('324', 'admin@example.com', '1')"
