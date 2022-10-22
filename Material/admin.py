@@ -7,7 +7,7 @@ from Material.models import Material, PhotoMaterial, RevisionMaterial, PhotoRevi
 from django.utils.html import format_html
 # Register your models here.
 from django.conf import settings
-
+'''
 class PhotoMaterialAdmin(admin.StackedInline):
     model = PhotoMaterial
     extra = 0
@@ -33,7 +33,8 @@ class MaterialAdmin(admin.ModelAdmin):
             return format_html('<a title="Los Tejos" href={}> <img src={} width="100" height="100" /></a>',thumbail,thumbail)
 
 
-
 # Register your models here.
 admin.site.register(Material,MaterialAdmin )
 admin.site.register(AsignacionMaterial)
+'''
+admin.site.register(Material)
