@@ -126,13 +126,9 @@ else:
         conn_max_age=600
     )
 }
-#PGPASSWORD=YlfN8OAf09HhUfuUVIBzoWgY71wJc6Jf
-# psql 
-# -h dpg-cd5833aen0hugpkn2cag-a.oregon-postgres.render.com 
-# -U db_324db_user
-# db_324db
 
-
+#PGPASSWORD=rJ447fT859pDdcUmVhtvTbqqa0QsiMMJ 
+# psql -h dpg-cda0jl2en0hldb2fr98g-a.oregon-postgres.render.com -U db_324app_user db_324app
 
 #    'default': dj_database_url.config()
 
