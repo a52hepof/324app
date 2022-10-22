@@ -27,5 +27,6 @@ Flask-Login==0.6.0
 Flask-SeaSurf==0.3.0
 Flask-SQLAlchemy==2.5.1
 django-admin-thumbnails==0.2.6
+django-model-utils==4.2.0
 
 
