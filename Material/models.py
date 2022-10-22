@@ -108,7 +108,7 @@ class Material(models.Model):
     
     
     material = models.CharField(max_length=200, null=True)
-    seccion =models.ManyToManyField(Seccion,through="AsignacionMaterial")
+    #seccion =models.ManyToManyField(Seccion,through="AsignacionMaterial")
     
     materialDescription = models.TextField(max_length=3000,null=True)
     created = models.DateTimeField(auto_now_add=False, default=timezone.now)
@@ -129,7 +129,7 @@ class Material(models.Model):
     def __str__(self):
         #return '%s - %s' %(self.titulo, self.description)
         return  'Material: '+self.material +'  - Alta: '+ str(self.created)+'  - ID: '+ str(self.id)
-
+'''
 
 class PhotoMaterial(models.Model):
     photoName = models.CharField(max_length=200, null=True, blank=True)
@@ -200,4 +200,4 @@ class AsignacionMaterial(models.Model):
     rondaSolar = models.IntegerField()
     def __str__(self):
         return self.seccionName.seccionName + '----'+ self.material.material+'---' +str(self.rondaSolar)
-
+'''
