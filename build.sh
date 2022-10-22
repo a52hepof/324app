@@ -4,10 +4,10 @@ set -o errexit
 
 pip install -r requeriments.txt
 
-python manage.py makemigrations
+#python manage.py makemigrations
 python manage.py collectstatic --no-input
 python manage.py migrate auth
-python manage.py migrate --run-syncdb
+#python manage.py migrate --run-syncdb
 python manage.py migrate --fake-initial
 #create superusers. Primer despliegue 
 #python manage.py createsuperuser --noinput #take enviroment variables
