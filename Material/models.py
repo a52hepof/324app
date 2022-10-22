@@ -1,3 +1,4 @@
+
 from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
@@ -9,7 +10,6 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from sqlalchemy import null, true
 from Asociados.models import Seccion
-
 # Create your models here.
 def uploadFileName(instance,filename):
     extension=filename.split('.')[1]
@@ -118,8 +118,8 @@ class Material(models.Model):
     factura = models.FileField(upload_to=uploadFileName,null=True, blank=True)
     alarma = models.BooleanField(default=False)
     #user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    User = models.CharField(choices=userChoicesTuple,max_length=50,null=True, blank=True,)
-    #User = models.CharField(max_length=60, null=True, blank=True)
+    #User = models.CharField(choices=userChoicesTuple,max_length=50,null=True, blank=True,)
+    User = models.CharField(max_length=60, null=True, blank=True)
     
     fotografia = ProcessedImageField(upload_to=uploadFileName,
                                       #processors=[ResizeToFill(600, 400)],
