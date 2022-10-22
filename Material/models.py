@@ -112,8 +112,8 @@ class Material(models.Model):
     
     materialDescription = models.TextField(max_length=3000,null=True)
     created = models.DateTimeField(auto_now_add=False, default=timezone.now)
-    tipoMaterial =models.CharField(choices=TIPO_MATERIAL,max_length=50,null=True, blank=True)
-    estado=models.CharField(choices=ESTADO_MATERIAL,max_length=50,null=True, default='Nuevo')
+    #tipoMaterial =models.CharField(choices=TIPO_MATERIAL,max_length=50,null=True, blank=True)
+    #estado=models.CharField(choices=ESTADO_MATERIAL,max_length=50,null=True, default='Nuevo')
     fecha_compra=models.DateField(null=True, blank=True)
     factura = models.FileField(upload_to=uploadFileName,null=True, blank=True)
     alarma = models.BooleanField(default=False)
@@ -171,7 +171,7 @@ class RevisionMaterial(models.Model):
     numPiquetasgEnerals = models.PositiveSmallIntegerField(null=True, blank=True)
     seGuardaSucia = models.BooleanField(default=False)
     descripcionRevision = models.TextField(null=True, blank=True)
-    resultadoRevision = models.CharField(choices=RESULTADO_REVISION,max_length=50,null=True, blank=True)
+    #resultadoRevision = models.CharField(choices=RESULTADO_REVISION,max_length=50,null=True, blank=True)
     
     desperfectosReparadosLimpios = models.BooleanField(default=False)
     fechaCierre = models.DateField(null=True, blank=True)    
