@@ -35,7 +35,7 @@ index=0
 userChoicesList = []
 for user in usersChoices:
     #print(index, user)
-    tuplaChoice= (index,user)
+    tuplaChoice= (user,user)
     userChoicesList.append(tuplaChoice)
     index+=1
 userChoicesTuple = tuple(userChoicesList)
@@ -44,10 +44,10 @@ print(userChoicesTuple)
 #print(usersChoices)
 #print([x for x in USUARIOS_CHOICES.values_list('User', flat=True).distinct()])
 class Material(models.Model):
-    NUEVO = 1
-    DESPERFECTOS_MENORES = 2
-    DESPERFECTOS_MODERADOS = 3
-    DESPERFECTOS_GRAVES = 4
+    NUEVO = "Nuevo"
+    DESPERFECTOS_MENORES = "Desperfectos menores"
+    DESPERFECTOS_MODERADOS = "Desperfectos moderados"
+    DESPERFECTOS_GRAVES = "Desperfectos graves"
     ESTADO_MATERIAL = (
        (NUEVO,'Nuevo'),#('Material en perfecto estado de nuevo')
        (DESPERFECTOS_MENORES,'Desperfectos menores'),# ('Pequeños Recambios que no afecta a funcionalidad')),
@@ -55,29 +55,29 @@ class Material(models.Model):
        (DESPERFECTOS_GRAVES,'Desperfectos graves'), #('Recambios que requieren atención inmediata')),
     )
     
-    TIENDAS = 1
-    RECAMBIOS_TIENDAS = 2
-    CAMPISMO = 3
-    HERRAMIENTAS = 4
-    PINTURAS = 5
-    ELECTRICIDAD=6
-    FONTANERIA=7
-    MESAS_BANCOS=8
-    INFRAESTRUCTURA_ACAMPADAS=9
-    OTROS_CAMPISMO=39
+    TIENDAS = "Tiendas"#1
+    RECAMBIOS_TIENDAS = "Recambios Tiendas"#2
+    CAMPISMO = "Campismo"#3
+    HERRAMIENTAS = "Herramientas"#4
+    PINTURAS = "Pinturas"#5
+    ELECTRICIDAD="Electricidad"#6
+    FONTANERIA="Fontanería"#7
+    MESAS_BANCOS="Mesas y Bancos"#8
+    INFRAESTRUCTURA_ACAMPADAS="Infraestructura Acampadas"#9
+    OTROS_CAMPISMO="Otros Campismo"#39
     
-    COCINA=40
-    HORNILLOS_ROSCOS=41
-    BOMBONAS_CARTUCHOS=42
-    OTROS_COCINA=49    
+    COCINA="Cocina"#40
+    HORNILLOS_ROSCOS="Hornillos y Roscos"#41
+    BOMBONAS_CARTUCHOS="Bombonas y Cartuchos"#42
+    OTROS_COCINA="Otros Cocina"#49    
 
-    DIDÁCTICO=50
-    OTROS_DIDACTICO=51
+    DIDÁCTICO="Didáctico"#50
+    OTROS_DIDACTICO="Otros Didáctico"#51
     
-    RECAMBIOS_CAMPISMO=90
-    RECAMBIOS_ELECTRICIDAD=91
-    RECAMBIOS_FONTANERIA=92
-    RECAMBIOS_COCINA=94
+    RECAMBIOS_CAMPISMO="Recambios campismo"#90
+    RECAMBIOS_ELECTRICIDAD="Recambios electricidad"#91
+    RECAMBIOS_FONTANERIA="Recambios fontanería"#92
+    RECAMBIOS_COCINA="Recambios cocina"#94
     
 
     
@@ -112,13 +112,13 @@ class Material(models.Model):
     
     materialDescription = models.TextField(max_length=3000,null=True)
     created = models.DateTimeField(auto_now_add=False, default=timezone.now)
-    tipoMaterial =models.CharField(choices=TIPO_MATERIAL,null=True, blank=True)
-    estado=models.CharField(choices=ESTADO_MATERIAL,null=True, default='Nuevo')
+    tipoMaterial =models.CharField(choices=TIPO_MATERIAL,max_length=50,null=True, blank=True)
+    estado=models.CharField(choices=ESTADO_MATERIAL,max_length=50,null=True, default='Nuevo')
     fecha_compra=models.DateField(null=True, blank=True)
     factura = models.FileField(upload_to=uploadFileName,null=True, blank=True)
     alarma = models.BooleanField(default=False)
     #user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    User = models.CharField(choices=userChoicesTuple,null=True, blank=True,)
+    User = models.CharField(choices=userChoicesTuple,max_length=50,null=True, blank=True,)
     #User = models.CharField(max_length=60, null=True, blank=True)
     
     fotografia = ProcessedImageField(upload_to=uploadFileName,
@@ -145,10 +145,10 @@ class PhotoMaterial(models.Model):
 
 class RevisionMaterial(models.Model):
     
-    PASA_REVISION = 1
-    DESPERFECTOS_MENORES = 2
-    NECESITA_LIMPIEZA = 2
-    NECESITA_REPARACION = 5
+    PASA_REVISION = "pasa revision"
+    DESPERFECTOS_MENORES = "Desperfectos menores"
+    NECESITA_LIMPIEZA = "Necesita limpieza"
+    NECESITA_REPARACION = "Necesita reparacion"
     
     RESULTADO_REVISION = (
        (PASA_REVISION,'Revisión conforme'),#('Material en perfecto estado de nuevo')
@@ -171,7 +171,7 @@ class RevisionMaterial(models.Model):
     numPiquetasgEnerals = models.PositiveSmallIntegerField(null=True, blank=True)
     seGuardaSucia = models.BooleanField(default=False)
     descripcionRevision = models.TextField(null=True, blank=True)
-    resultadoRevision = models.CharField(choices=RESULTADO_REVISION,null=True, blank=True)
+    resultadoRevision = models.CharField(choices=RESULTADO_REVISION,max_length=50,null=True, blank=True)
     
     desperfectosReparadosLimpios = models.BooleanField(default=False)
     fechaCierre = models.DateField(null=True, blank=True)    
