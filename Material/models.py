@@ -112,13 +112,13 @@ class Material(models.Model):
     
     materialDescription = models.TextField(max_length=3000,null=True)
     created = models.DateTimeField(auto_now_add=False, default=timezone.now)
-    tipoMaterial =models.PositiveIntegerField(choices=TIPO_MATERIAL,null=True, blank=True)
-    estado=models.PositiveIntegerField(choices=ESTADO_MATERIAL,null=True, default='Nuevo')
+    tipoMaterial =models.CharField(choices=TIPO_MATERIAL,null=True, blank=True)
+    estado=models.PositiveIntegerFCharFieldield(choices=ESTADO_MATERIAL,null=True, default='Nuevo')
     fecha_compra=models.DateField(null=True, blank=True)
     factura = models.FileField(upload_to=uploadFileName,null=True, blank=True)
     alarma = models.BooleanField(default=False)
     #user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    User = models.PositiveIntegerField(choices=userChoicesTuple,null=True, blank=True,)
+    User = models.CharField(choices=userChoicesTuple,null=True, blank=True,)
     #User = models.CharField(max_length=60, null=True, blank=True)
     
     fotografia = ProcessedImageField(upload_to=uploadFileName,
