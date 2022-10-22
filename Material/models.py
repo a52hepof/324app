@@ -49,10 +49,10 @@ class Material(models.Model):
     DESPERFECTOS_MODERADOS = "Desperfectos moderados"
     DESPERFECTOS_GRAVES = "Desperfectos graves"
     ESTADO_MATERIAL = (
-       (NUEVO,'Nuevo'),#('Material en perfecto estado de nuevo')
-       (DESPERFECTOS_MENORES,'Desperfectos menores'),# ('Pequeños Recambios que no afecta a funcionalidad')),
-       (DESPERFECTOS_MODERADOS,'Desperfectos moderados'), #('Recambios que afectan a funcionalidad de forma leve')),
-       (DESPERFECTOS_GRAVES,'Desperfectos graves'), #('Recambios que requieren atención inmediata')),
+       ("Nuevo","Nuevo"),#('Material en perfecto estado de nuevo')
+       ("Desperfectos menores",'Desperfectos menores'),# ('Pequeños Recambios que no afecta a funcionalidad')),
+       ("Desperfectos moderados",'Desperfectos moderados'), #('Recambios que afectan a funcionalidad de forma leve')),
+       ("Desperfectos graves",'Desperfectos graves'), #('Recambios que requieren atención inmediata')),
     )
     
     TIENDAS = "Tiendas"#1
@@ -82,8 +82,8 @@ class Material(models.Model):
 
     
     TIPO_MATERIAL = (
-        (TIENDAS,'Tiendas'),
-        (RECAMBIOS_TIENDAS,'Recambios tiendas'),
+        ("TIENDAS",'Tiendas'),
+        ("Recambios tiendas",'Recambios tiendas'),
         (CAMPISMO,'Campismo'),
         (HERRAMIENTAS,'Herramientas'), 
         (PINTURAS,'Pinturas'), 
