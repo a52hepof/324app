@@ -11,9 +11,14 @@ class Seccion(models.Model):
 
     
 class EquiposRonda(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    scouters = models.ForeignKey(Profile, on_delete=models.CASCADE)
     seccionName = models.ForeignKey(Seccion, on_delete=models.CASCADE)
     nombreSeccion = models.CharField(max_length=100,null=True, blank=True)
     rondaSolar = models.IntegerField()
     def __str__(self):
-        return self.seccionName.seccionName + '----'+ self.user.user.username+'---' +str(self.rondaSolar)
+        return self.seccionName.seccionName + '----'+ self.scouters.user.username+'---' +str(self.rondaSolar)
+
+
+
+
+
