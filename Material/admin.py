@@ -16,8 +16,9 @@ class RevisionMaterialAdmin(admin.StackedInline):
 class MaterialAdmin(admin.ModelAdmin):
     search_fields = ("material", "materialDescription")
     readonly_fields = ('created',)
-    list_display = ("material", "materialDescription","tipoMaterial","foto")
-    list_filter = ("tipoMaterial", )
+    #list_display = ("material", "materialDescription","tipoMaterial","foto")
+    list_display = ("material", "materialDescription","foto")
+    #list_filter = ("tipoMaterial", )
     #exclude = ('realizada',)
     inlines = [PhotoMaterialAdmin,RevisionMaterialAdmin]
     def foto(self, obj):
